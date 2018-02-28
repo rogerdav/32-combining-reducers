@@ -1,14 +1,15 @@
 import React from 'react';
 
-class CategoryForm extends React.Component {
+class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this.props.category 
-      ? this.props.category
+    this.state = this.props.expense 
+      ? this.props.expense
       : {
-        title: '',
-        budget: '',
+        name: '',
+        amount: '',
+        category: this.props.cat._id,
 
       };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,23 +25,23 @@ class CategoryForm extends React.Component {
     e.preventDefault();
     
     this.props.onComplete(this.state);
-    this.setState({title: '', budget: ''});
-    if(this.props.buttonText === 'update') this.props.toggleEdit();
+    // if(this.props.buttonText === 'update') this.props.toggleEdit();
     
   }
 
   render() {
     return (
-      <form className='category-form' onSubmit={this.handleSubmit}>
+      <form className='expense-form' onSubmit={this.handleSubmit}>
+        <h3> Add a new expense for this category</h3>
         <input
           type='text'
-          name='title'
-          value={this.state.title}
+          name='name'
+          value={this.state.name}
           onChange={this.handleChange}/>
         <input 
           type='number'
-          name='budget'
-          value={this.state.budget}
+          name='amount'
+          value={this.state.amount}
           onChange={this.handleChange} />
       
         <button type='submit'>{this.props.buttonText}</button>
@@ -50,4 +51,4 @@ class CategoryForm extends React.Component {
   }
 }
 
-export default CategoryForm;
+export default ExpenseForm;

@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {categoryCreate, categoryDelete, categoryUpdate} from '../../action/category-actions';
 import CategoryForm from '../category-form/index';
-import CategoryItem from '../category-list/index';
+import CategoryItem from '../category-item/index';
 
 class Dashboard extends React.Component {
   render() {
@@ -29,7 +29,8 @@ class Dashboard extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  categories: state,
+  categories: state.categories,
+  expenses: state.expenses,
 });
 
 const mapDispatchToProps = (dispatch, getState) => ({

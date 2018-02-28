@@ -1,5 +1,6 @@
 export default (state = [], action) => {
   let {type, payload} = action;
+  // console.log('payload in category', payload)
 
   switch(type) {
   case 'CATEGORY_CREATE': return [...state, payload];
