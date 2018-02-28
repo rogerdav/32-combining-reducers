@@ -23,8 +23,8 @@ class ExpenseForm extends React.Component {
   handleSubmit(e) {
     console.log(this.props);
     e.preventDefault();
-    
     this.props.onComplete(this.state);
+    this.setState({name: '', amount: '', category: ''});
     // if(this.props.buttonText === 'update') this.props.toggleEdit();
     
   }
